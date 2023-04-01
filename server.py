@@ -57,7 +57,9 @@ def handle_connection(client: socket.socket, address: str) -> None:
 
 def main() -> None:
     logging.basicConfig(
-        filename=LOGS_PATH, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s'
+        filename=LOGS_PATH,
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
     )
 
     sock = None
