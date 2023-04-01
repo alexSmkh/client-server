@@ -31,6 +31,9 @@ def send_messages(client: socket.socket, is_running: threading.Event) -> None:
 
 
 def main() -> None:
+    client = None
+    is_running = None
+
     try:
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect((HOST, PORT))
@@ -64,7 +67,7 @@ def main() -> None:
         if client is not None:
             client.close()
 
-        if not is_running.is_set():
+        if is_running is not None and not is_running.is_set():
             os._exit(0)
 
 
